@@ -2,7 +2,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var MyStem = require('./lib/MyStem');
-var Promise = require('bluebird');
 
 
 app.use(bodyParser.text());
@@ -12,8 +11,6 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-    // console.log(req.body);
-    // console.log(req.query);
     
     var myStem = new MyStem();
 
@@ -25,7 +22,8 @@ app.post('/', function (req, res) {
     var promises = words.map(function(word) {
         return myStem.extractAllGrammemes(word)
     });
-
+    console.log(words);
+    
     Promise.all(promises).then(function(lemmas) {
         console.log(lemmas);
         myStem.stop();
