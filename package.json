@@ -9,10 +9,6 @@
     "postinstall": "node bin/download-mystem.js",
     "test": "mocha  --timeout 1000 --ui qunit tests/*"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/koorchik/node-mystem3.git"
-  },
   "keywords": [
     "NLP",
     "morphology",
@@ -20,20 +16,16 @@
     "stemming",
     "lemmatization"
   ],
-  "author": "koorchik",
+  "author": "koorchik, Findoss, serjmax",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/koorchik/node-mystem3/issues"
-  },
-  "homepage": "https://github.com/koorchik/node-mystem3",
   "dependencies": {
     "bluebird": "^2.9.25",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "inly": "^3.0.3",
     "mkdirp": "^0.5.0",
     "path": "^0.11.14",
-    "request": "^2.55.0",
-    "tar.gz": "^0.1.1"
+    "request": "^2.55.0"
   },
   "devDependencies": {
     "chai": "^2.3.0",
