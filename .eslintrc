@@ -8,7 +8,6 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": ["error"],
-    "no-dynamic-require": 0,
     "no-plusplus": [
       "error",
       {
