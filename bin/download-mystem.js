@@ -9,14 +9,14 @@ const unzip = require('inly');
 const TARBALL_URLS = {
   linux: {
     ia32: 'https://download.cdn.yandex.net/mystem/mystem-3.0-linux3.5-32bit.tar.gz',
-    x64: 'https://download.cdn.yandex.net/mystem/mystem-3.0-linux3.1-64bit.tar.gz',
+    x64: 'https://download.cdn.yandex.net/mystem/mystem-3.1-linux-64bit.tar.gz',
   },
   darwin: {
-    x64: 'https://download.cdn.yandex.net/mystem/mystem-3.0-macosx10.8.tar.gz',
+    x64: 'https://download.cdn.yandex.net/mystem/mystem-3.1-macosx.tar.gz',
   },
   win32: {
     ia32: 'https://download.cdn.yandex.net/mystem/mystem-3.0-win7-32bit.zip',
-    x64: 'https://download.cdn.yandex.net/mystem/mystem-3.0-win7-64bit.zip',
+    x64: 'https://download.cdn.yandex.net/mystem/mystem-3.1-win-64bit.zip',
   },
   freebsd: {
     x64: 'https://download.cdn.yandex.net/mystem/mystem-3.0-freebsd9.0-64bit.tar.gz',
@@ -36,7 +36,6 @@ function downloadFile(url, dest, cb) {
 
   const req = request.get(url);
   req.pipe(file).on('error', err => {
-    // Handle errors
     fs.unlink(dest); // Delete the file async. (But we don't check the result)
     if (cb) cb(err.message);
   });
