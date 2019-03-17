@@ -1,36 +1,50 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var MyStem = require("./lib/MyStem");
+const express = require('express');
+const bodyParser = require('body-parser');
+const MyStem = require('../lib/MyStem');
 
-var app = express();
+const app = express();
 
+// middleware
 app.use(bodyParser.text());
 
-app.get("/", function(req, res) {
-  res.send("Hello World!");
+// routes
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-app.post("/", function(req, res) {
-  var myStem = new MyStem();
+app.post('/', (req, res) => {
+  const TAG = 'span';
+  const sourceText = req.body;
 
-  myStem.start();
+  const filterText = sourceText
+    .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '')
+    .replace(/\r?\n/g, ' ')
+    .split(' ')
+    .filter((word, i, arr) => i === arr.lastIndexOf(word))
+    .join(' ');
 
-  // var words = ['карусели', 'немцы', 'печалька'];
-  const words = req.body.split(" ");
+  const myStem = new MyStem();
 
-  var promises = words.map(function(word) {
-    return myStem.extractAllGrammemes(word);
-  });
-  console.log(words);
+  myStem.start('--format', 'json', '--eng-gr', '-ig');
+  myStem.extractAllGrammemes(filterText).then(allGrammemes => {
+    let resultText = sourceText;
+    allGrammemes.forEach((word, i) => {
+      const reg = '(^|\\s)' + word.text + '(?=\\s|$|!|,)';
+      resultText = resultText.replace(
+        new RegExp(reg, 'gi'),
+        ` <${TAG} class="${word.gr}">${word.text}</${TAG}>`
+      );
+    });
 
-  Promise.all(promises).then(function(lemmas) {
-    console.log(lemmas);
+    resultText = resultText.replace(/\r/g, '<br>');
+
     myStem.stop();
-  });
 
-  res.send("OK");
+    res.set('Content-Type', 'text/html');
+    res.send(resultText);
+  });
 });
 
-app.listen(3000, function() {
-  console.log("Example app listening on port 3000!");
+app.listen(3000, () => {
+  console.log('Example app listening on port 3000!');
 });
