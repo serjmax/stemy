@@ -4,8 +4,8 @@
   "description": "NodeJS wrapper for the Yandex MyStem 3",
   "main": "lib/MyStem.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
+    "dev": "nodemon server/app.js watch server/*",
+    "start": "server/node app.js",
     "postinstall": "node bin/download-mystem.js",
     "test": "mocha  --timeout 1000 --ui qunit tests/*"
   },
