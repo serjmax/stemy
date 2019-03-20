@@ -19,7 +19,6 @@
   "author": "koorchik, Findoss, serjmax",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^2.9.25",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "inly": "^3.0.3",

@@ -1,15 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const MyStem = require('../lib/MyStem');
+const path = require('path');
 
 const app = express();
 
 // middleware
 app.use(bodyParser.text());
+app.use(express.static(path.join(__dirname , '../client')));
+
+// localhost:3000/main.css
+// localhost:3000/index.html = localhost:3000
 
 // routes
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.sendfile( path.join(__dirname, '../client/index.html'));
 });
 
 app.post('/', (req, res) => {
