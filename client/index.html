@@ -16,13 +16,32 @@
     <div id="result"></div>
   </body>
   <script>
-    /*
-    * включаем когда згрузилась страница
-    * регистрируем функцию по нажатио отправки
-    * отправляем текст
-    * получаем ответ
-    * вставляем в #result
-    * готово!
-    * /
+    // /*
+    // * включаем когда згрузилась страница
+    // * регистрируем функцию по нажатио отправки
+    // * отправляем текст
+    // * получаем ответ
+    // * вставляем в #result
+    // * готово!
+    // * /
+    const req = new Request('/', {
+      method: 'GET',
+    })
+    fetch(req)
+      .then( (response) =>{
+        if(response.ok){
+          return response.text()
+        } else {
+          throw new Error('Bad HTTP')
+        }   
+      })
+      .then( (data) => {
+        console.log(data);
+        const output = document.getElementById('result');
+        output.textContent = data;
+      })
+      .catch( (err) =>{
+        console.log('ERROR: ', err.message);
+      })
   </script>
 </html>
