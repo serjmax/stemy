@@ -9,12 +9,9 @@ const app = express();
 app.use(bodyParser.text());
 app.use(express.static(path.join(__dirname , '../client')));
 
-// localhost:3000/main.css
-// localhost:3000/index.html = localhost:3000
-
 // routes
-app.get('/', (req, res) => {
-  res.sendfile( path.join(__dirname, '../client/index.html'));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + "../client/index.html"));
 });
 
 app.post('/', (req, res) => {
@@ -34,10 +31,10 @@ app.post('/', (req, res) => {
   myStem.extractAllGrammemes(filterText).then(allGrammemes => {
     let resultText = sourceText;
     allGrammemes.forEach((word, i) => {
-      const reg = '(^|\\s)' + word.text + '(?=\\s|$|!|,)';
+      const reg = '(^|\\s)(' + word.text + ')(?=\\s|$|!|,|.|<)';
       resultText = resultText.replace(
         new RegExp(reg, 'gi'),
-        ` <${TAG} class="${word.gr}">${word.text}</${TAG}>`
+        ` <${TAG} class="${word.gr}">$2</${TAG}>`
       );
     });
 
