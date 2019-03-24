@@ -8,21 +8,41 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="/text">
-      <textarea name="text" id="text" cols="100" rows="10"></textarea>
-      <button type="submit">send</button>
+    <form action="/" method="post">
+      <textarea type="text" name="text" id="text" cols="100" rows="10">время место</textarea>
+      <button type="button" onclick="send()">send</button>
     </form>
 
     <div id="result"></div>
   </body>
   <script>
-    /*
-    * включаем когда згрузилась страница
-    * регистрируем функцию по нажатио отправки
-    * отправляем текст
-    * получаем ответ
-    * вставляем в #result
-    * готово!
-    * /
+    function send() {
+      const URL = 'http://localhost:3000/'
+      const input = document.getElementById('text');
+      const output = document.getElementById('result');
+  
+      const attr = {
+        method: 'POST',
+        body: input.value,
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin':'*'
+        }
+      }
+
+
+      fetch(URL, attr)
+        .then( (res) =>{
+          if(res.ok)return res.text()
+          else throw new Error('Bad HTTP')
+        })
+        .then( (data) => {
+          output.innerHTML = data;
+        })
+        .catch( (err) =>{
+          output.innerHTML = err.message;
+          console.error('ERROR: ', err.message);
+        })
+    }
   </script>
 </html>
