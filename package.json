@@ -1,23 +1,23 @@
 {
-  "name": "mystem3",
-  "version": "1.1.0",
-  "description": "NodeJS wrapper for the Yandex MyStem 3",
-  "main": "lib/MyStem.js",
+  "name": "stemy",
+  "version": "1.0.0",
+  "description": "Parts of speech from the Yandex MyStem",
   "scripts": {
     "dev": "nodemon server/app.js watch server/*",
-    "start": "server/node app.js",
+    "start": "node server/node app.js",
     "postinstall": "node bin/download-mystem.js",
-    "test": "mocha  --timeout 1000 --ui qunit tests/*"
+    "test": "mocha --timeout 1000 --ui qunit tests/*"
   },
   "keywords": [
-    "NLP",
-    "morphology",
     "yandex",
-    "stemming",
-    "lemmatization"
+    "stemming"
   ],
-  "author": "koorchik, Findoss, serjmax",
+  "author": "Serjmax, Findoss, Koorchik",
   "license": "ISC",
+  "engines": {
+    "node": "9.9.0",
+    "npm": "5.6.0"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
