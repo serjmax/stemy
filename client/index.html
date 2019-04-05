@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="/" method="post">
+      <textarea type="text" name="text" id="text" cols="100" rows="10">время место</textarea>
+      <button type="button" onclick="send()">send</button>
+    </form>
+
+    <div id="result"></div>
+  </body>
+  <script>
+    function send() {
+      const URL = 'http://localhost:3000/'
+      const input = document.getElementById('text');
+      const output = document.getElementById('result');
+  
+      const attr = {
+        method: 'POST',
+        body: input.value,
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin':'*'
+        }
+      }
+
+
+      fetch(URL, attr)
+        .then( (res) =>{
+          if(res.ok)return res.text()
+          else throw new Error('Bad HTTP')
+        })
+        .then( (data) => {
+          output.innerHTML = data;
+        })
+        .catch( (err) =>{
+          output.innerHTML = err.message;
+          console.error('ERROR: ', err.message);
+        })
+    }
+  </script>
+</html>

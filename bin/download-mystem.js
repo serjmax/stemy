@@ -36,7 +36,7 @@ function downloadFile(url, dest, cb) {
 
   const req = request.get(url);
   req.pipe(file).on('error', err => {
-    fs.unlink(dest); // Delete the file async. (But we don't check the result)
+    fs.unlinkSync(dest); // Delete the file async. (But we don't check the result)
     if (cb) cb(err.message);
   });
 
@@ -49,7 +49,7 @@ function unzipFile(src, dest, cb) {
   console.log('Extracting %s', src);
 
   unzip(src, dest)
-    .on('error', error => cb(error))
+    .on('error', (error) => cb(error))
     .on('end', () => cb());
 }
 
@@ -65,9 +65,11 @@ function main() {
       if (err2) throw err2;
 
       unzipFile(tmpFile, targetDir, err3 => {
-        if (err3) throw err3;
+        if (err3 !== undefined) throw err3;
+
         console.log('Unlink', tmpFile);
-        fs.unlink(tmpFile);
+        fs.unlinkSync(tmpFile);
+        
       });
     });
   });

@@ -1,15 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const MyStem = require('../lib/MyStem');
+const path = require('path');
 
 const app = express();
 
 // middleware
 app.use(bodyParser.text());
+app.use(express.static(path.join(__dirname , '../client')));
 
 // routes
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + "../client/index.html"));
 });
 
 app.post('/', (req, res) => {
@@ -29,10 +31,10 @@ app.post('/', (req, res) => {
   myStem.extractAllGrammemes(filterText).then(allGrammemes => {
     let resultText = sourceText;
     allGrammemes.forEach((word, i) => {
-      const reg = '(^|\\s)' + word.text + '(?=\\s|$|!|,)';
+      const reg = '(^|\\s)(' + word.text + ')(?=\\s|$|!|,|.|<)';
       resultText = resultText.replace(
         new RegExp(reg, 'gi'),
-        ` <${TAG} class="${word.gr}">${word.text}</${TAG}>`
+        ` <${TAG} class="${word.gr}">$2</${TAG}>`
       );
     });
 
