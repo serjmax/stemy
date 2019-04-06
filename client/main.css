@@ -1,0 +1,131 @@
+body {
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: #222;
+  background-color: #eee;
+  padding: 0 10px 0;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.img {
+  float: left;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.desc {
+  font-size: 1.3rem;
+}
+
+.send {
+  align-items: center;
+  border-radius: 2px;
+  display: inline-flex;
+  height: 36px;
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 500;
+  justify-content: center;
+  outline: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), color 1ms;
+  position: relative;
+  vertical-align: middle;
+  user-select: none;
+  background-color: #2196f3;
+  border-color: #2196f3;
+  color: #fff;
+  float: right;
+  cursor: pointer;
+}
+
+.send:disabled {
+  background-color: #ccc;
+  border-color: lightcoral;
+  color: #999;
+}
+
+.editor {
+  max-height: 90vh;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-radius: 5px;
+}
+
+.editor-limit {
+  border: 5px solid lightcoral;
+}
+
+.editor-limit:active {
+  border: 5px solid lightcoral;
+}
+
+.A {
+  color: orangered;
+}
+
+.ADV {
+  color: lightblue;
+}
+
+.ADVPRO {
+  color: lightgreen;
+}
+
+.ANUM {
+  color: lightseagreen;
+}
+
+.APRO {
+  color: violet;
+}
+
+.COM {
+  color: darkblue;
+}
+
+.CONJ {
+  color: darkgreen;
+}
+
+.INTJ {
+  color: darkorange;
+}
+
+.NUM {
+  color: darkcyan;
+}
+
+.PART {
+  color: darkred;
+}
+
+.PR {
+  color: darkorchid;
+}
+
+.S {
+  color: brown;
+}
+
+.SPRO {
+  color: teal;
+}
+
+.V {
+  color: royalblue;
+}

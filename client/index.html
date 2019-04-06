@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css" />
+    <title>STEMY - Части речи</title>
+  </head>
+  <body>
+    <header>
+      <img src="imgs/logo_100x100.png" alt="logo" class="img" />
+      <h1>STEMY</h1>
+      <span class="desc">
+        Части речи на основе
+        <a href="https://tech.yandex.ru/mystem/">Yandex.MyStem</a>
+      </span>
+      <button type="button" id="send" class="send">
+        подсветить
+      </button>
+    </header>
+    <br />
+    <div contenteditable id="editor" class="editor">
+      Ваш шедевр готов! <br />
+      Равным образом новая модель организационной деятельности представляет собой интересный
+      эксперимент проверки модели развития. <br />
+      Задача организации, в особенности же сложившаяся структура организации требуют определения и
+      уточнения существенных финансовых и административных условий. Идейные соображения высшего
+      порядка, а также постоянное информационно-пропагандистское обеспечение нашей деятельности
+      требуют определения и уточнения систем массового участия. Идейные соображения высшего порядка,
+      а также реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов)
+      участие в формировании системы обучения кадров, соответствует насущным потребностям. Задача
+      организации, в особенности же консультация с широким активом в значительной степени
+      обуславливает создание форм развития.
+    </div>
+  </body>
+  <script>
+    const URL = 'http://localhost:3000/';
+    // const URL = window.location.origin;
+
+    const LIMIT_CHARS = 55000;
+
+    const BTN = document.getElementById('send');
+    const EDITOR = document.getElementById('editor');
+
+    EDITOR.oninput = event => {
+      if (EDITOR.innerHTML.length > LIMIT_CHARS) {
+        alert(
+          'Слишком большой текст! \n Наш сервер может обрабаотать не более 55000 символов за раз.'
+        );
+        BTN.setAttribute('disabled', 'disabled');
+        EDITOR.classList.add('editor-limit');
+      } else {
+        BTN.removeAttribute('disabled');
+        EDITOR.classList.remove('editor-limit');
+      }
+    };
+
+    BTN.onclick = () => {
+      const attr = {
+        method: 'POST',
+        body: EDITOR.innerHTML,
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      };
+
+      fetch(URL, attr)
+        .then(res => {
+          if (res.ok) return res.text();
+          else throw new Error('Bad HTTP');
+        })
+        .then(data => {
+          EDITOR.innerHTML = data;
+        })
+        .catch(err => {
+          console.error('ERROR: ', err.message);
+        });
+    };
+  </script>
+</html>
