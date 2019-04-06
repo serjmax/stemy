@@ -2,7 +2,7 @@ body {
   font-family: 'Arial Narrow', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.42857143;
-  color: #222222;
+  color: #222;
   background-color: #eee;
   padding: 0 10px 0;
 }
@@ -47,6 +47,13 @@ a {
   border-color: #2196f3;
   color: #fff;
   float: right;
+  cursor: pointer;
+}
+
+.send:disabled {
+  background-color: #ccc;
+  border-color: lightcoral;
+  color: #999;
 }
 
 .editor {
@@ -59,8 +66,16 @@ a {
   border-radius: 5px;
 }
 
+.editor-limit {
+  border: 5px solid lightcoral;
+}
+
+.editor-limit:active {
+  border: 5px solid lightcoral;
+}
+
 .A {
-  color: lightcoral;
+  color: orangered;
 }
 
 .ADV {
@@ -76,7 +91,7 @@ a {
 }
 
 .APRO {
-  color: lightsalmon;
+  color: violet;
 }
 
 .COM {
@@ -104,7 +119,7 @@ a {
 }
 
 .S {
-  color: royalblue;
+  color: brown;
 }
 
 .SPRO {
@@ -112,5 +127,5 @@ a {
 }
 
 .V {
-  color: black;
+  color: royalblue;
 }
