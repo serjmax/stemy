@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Arial Narrow', Arial, sans-serif;
   font-size: 16px;
@@ -5,6 +9,7 @@ body {
   color: #222;
   background-color: #eee;
   padding: 0 10px 0;
+  overflow: hidden;
 }
 
 h1 {
@@ -15,6 +20,15 @@ h1 {
 
 a {
   text-decoration: none;
+}
+
+span {
+  padding: 1px 4px;
+}
+
+pre {
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
 }
 
 .img {
@@ -28,6 +42,7 @@ a {
 }
 
 .send {
+  width: 200px;
   align-items: center;
   border-radius: 2px;
   display: inline-flex;
@@ -56,8 +71,29 @@ a {
   color: #999;
 }
 
+.send-loading {
+  background-color: #1dd479;
+  color: #222;
+}
+
+.legend {
+  float: left;
+  display: inline-block;
+  width: 200px;
+}
+
+.legend-text {
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  font-weight: bold;
+}
+
 .editor {
-  max-height: 90vh;
+  float: left;
+  display: inline-block;
+  height: 82vh;
+  max-width: calc(100vw - 240px);
   padding: 10px;
   border: 1px solid #ccc;
   background-color: #fff;
@@ -75,57 +111,57 @@ a {
 }
 
 .A {
-  color: orangered;
+  background-color: orangered;
 }
 
 .ADV {
-  color: lightblue;
+  background-color: lightblue;
 }
 
 .ADVPRO {
-  color: lightgreen;
+  background-color: lightgreen;
 }
 
 .ANUM {
-  color: lightseagreen;
+  background-color: lightseagreen;
 }
 
 .APRO {
-  color: violet;
+  background-color: violet;
 }
 
 .COM {
-  color: darkblue;
+  background-color: rgb(70, 156, 255);
 }
 
 .CONJ {
-  color: darkgreen;
+  background-color: rgb(44, 216, 44);
 }
 
 .INTJ {
-  color: darkorange;
+  background-color: darkorange;
 }
 
 .NUM {
-  color: darkcyan;
+  background-color: darkcyan;
 }
 
 .PART {
-  color: darkred;
+  background-color: rgb(243, 21, 21);
 }
 
 .PR {
-  color: darkorchid;
+  background-color: darkorchid;
 }
 
 .S {
-  color: brown;
+  background-color: rgb(231, 255, 15);
 }
 
 .SPRO {
-  color: teal;
+  background-color: teal;
 }
 
 .V {
-  color: royalblue;
+  background-color: royalblue;
 }
