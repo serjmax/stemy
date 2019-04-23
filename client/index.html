@@ -58,9 +58,12 @@
     };
 
     BTN.onclick = () => {
+      BTN.innerText = '🎨 раскрашиваем ...';
+      BTN.classList.add('send-loading');
+
       const attr = {
         method: 'POST',
-        body: EDITOR.innerHTML,
+        body: EDITOR.innerText,
         mode: 'cors',
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -74,6 +77,10 @@
         })
         .then(data => {
           EDITOR.innerHTML = data;
+        })
+        .finally(() => {
+          BTN.innerText = 'подсветить';
+          BTN.classList.remove('send-loading');
         })
         .catch(err => {
           console.error('ERROR: ', err.message);
