@@ -2,7 +2,7 @@
 Parts of speech from the Yandex MyStem
 
 ## Preview
--
+https://stemy.herokuapp.com/
 
 ## Getting started
 -
