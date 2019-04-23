@@ -1,9 +1,10 @@
-const { PUNCTUATION_MARKS, LINE_BREAK } = require('./regexp');
+const PUNCTUATION_MARKS = require('./regexp');
+const LINE_BREAK = require('./regexp');
 
 module.exports = string =>
   string
     .replace(PUNCTUATION_MARKS, '')
-    .replace(LINE_BREAK, ' ')
+    .replace(/\r?\n/g, ' ')
     .split(' ')
     .filter((word, i, arr) => i === arr.lastIndexOf(word))
     .join(' ');

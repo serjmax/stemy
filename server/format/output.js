@@ -1,6 +1,6 @@
-const TAG = 'span';
 const LINE_BREAK = require('./regexp');
 const WORD = require('./regexp');
+const TAG = 'span';
 
 module.exports = (allGrammemes, string) => {
   allGrammemes.forEach(word => {
