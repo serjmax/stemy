@@ -59,6 +59,12 @@
     const BTN = document.getElementById('send');
     const EDITOR = document.getElementById('editor');
 
+    function strip(html) {
+      var tmp = document.createElement('DIV');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText;
+    }
+
     EDITOR.oninput = event => {
       if (EDITOR.innerHTML.length > LIMIT_CHARS) {
         alert(
@@ -70,6 +76,13 @@
         BTN.removeAttribute('disabled');
         EDITOR.classList.remove('editor-limit');
       }
+    };
+
+    // TODO
+    // http://qaru.site/questions/256870/insert-value-into-textarea-where-cursor-was
+    EDITOR.onpaste = event => {
+      event.preventDefault();
+      EDITOR.innerHTML += strip(event.clipboardData.getData('text/plain'));
     };
 
     BTN.onclick = () => {
