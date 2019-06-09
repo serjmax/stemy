@@ -4,15 +4,6 @@ Parts of speech from the Yandex MyStem
 ## Preview
 https://stemy.herokuapp.com/
 
-## Getting started
--
-
-## Features
--
-
-## Usage Guide
--
-
 ## Contributing
 Please read [CONTRIBUTING.md](https://github.com/TODO_NAME/TODO_REPO/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
