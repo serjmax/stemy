@@ -1,63 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Arial Narrow', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.42857143;
-  color: #222222;
-  background-color: #ffffff;
+  color: #222;
+  background-color: #eee;
+  padding: 0 10px 0;
+  overflow: hidden;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+span {
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.img {
+  float: left;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.desc {
+  font-size: 1.3rem;
+}
+
+.send {
+  width: 200px;
+  align-items: center;
+  border-radius: 2px;
+  display: inline-flex;
+  height: 36px;
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 500;
+  justify-content: center;
+  outline: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1), color 1ms;
+  position: relative;
+  vertical-align: middle;
+  user-select: none;
+  background-color: #2196f3;
+  border-color: #2196f3;
+  color: #fff;
+  float: right;
+  cursor: pointer;
+}
+
+.send:disabled {
+  background-color: #ccc;
+  border-color: lightcoral;
+  color: #999;
+}
+
+.send-loading {
+  background-color: #1dd479;
+  color: #222;
+}
+
+.legend {
+  float: left;
+  display: inline-block;
+  width: 200px;
+}
+
+.legend-text {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.editor {
+  float: left;
+  display: inline-block;
+  height: 82vh;
+  max-width: calc(100vw - 240px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-radius: 5px;
+}
+
+.editor-limit {
+  border: 5px solid lightcoral;
+}
+
+.editor-limit:active {
+  border: 5px solid lightcoral;
 }
 
 .A {
-  color: lightcoral;
+  background-color: orangered;
 }
 
 .ADV {
-  color: lightblue;
+  background-color: lightblue;
 }
 
 .ADVPRO {
-  color: lightgreen;
+  background-color: lightgreen;
 }
 
 .ANUM {
-  color: lightseagreen;
+  background-color: lightseagreen;
 }
 
 .APRO {
-  color: lightsalmon;
+  background-color: violet;
 }
 
 .COM {
-  color: darkblue;
+  background-color: rgb(70, 156, 255);
 }
 
 .CONJ {
-  color: darkgreen;
+  background-color: rgb(44, 216, 44);
 }
 
 .INTJ {
-  color: darkorange;
+  background-color: darkorange;
 }
 
 .NUM {
-  color: darkcyan;
+  background-color: darkcyan;
 }
 
 .PART {
-  color: darkred;
+  background-color: rgb(243, 21, 21);
 }
 
 .PR {
-  color: darkorchid;
+  background-color: darkorchid;
 }
 
 .S {
-  color: royalblue;
+  background-color: rgb(231, 255, 15);
 }
 
 .SPRO {
-  color: teal;
+  background-color: teal;
 }
 
 .V {
-  color: black;
+  background-color: royalblue;
 }

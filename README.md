@@ -1,11 +1,16 @@
-# TITLE
+# ![LOGO](client/imgs/logo_100x100.png) STEMY 
+Parts of speech from the Yandex MyStem
 
-## AUTHOR
+## Preview
+https://stemy.herokuapp.com/
 
-@koorchik (Viktor Turskyi)
+## Contributing
+Please read [CONTRIBUTING.md](https://github.com/TODO_NAME/TODO_REPO/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## CONTRIBUTORS
+## Authors
+ * Serjmax - Initial work
+ * Findoss - server and client
+ * Koorchik - lib MyStem
 
-@bulgakovk
-@Findoss
-@serjmax
+## License
+[ISC](https://github.com/TODO_NAME/TODO_REPO/LICENSE.md).
